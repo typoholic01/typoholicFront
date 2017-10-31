@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/* list-style */
+tbody>tr>td>a {
+    color: black;
+}
+tbody>tr>td>a:hover,tbody>tr>td>a:focus {
+    color: #337ab7;
+    text-decoration: none;
+}
+i.fa-comment {
+    padding-left: 10px;
+    padding-right: 5px;
+}
+.pagination-lg>li>a {
+    padding: 6px 12px;
+    line-height: 1;
+}
+/* 게시판 이름 */
+body > div > h2.category-title {
+    border-left: 3px solid steelblue;
+    padding-left: 0.3em;
+}

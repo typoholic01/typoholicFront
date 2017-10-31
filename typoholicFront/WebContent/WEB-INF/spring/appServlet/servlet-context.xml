@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:beans="http://www.springframework.org/schema/beans"	
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	
+	<!-- 주석문 사용허가 -->
+	<annotation-driven/>
+	
+	<!-- 리소스 매핑 -->
+	<resources location="/WEB-INF/resources/js/" mapping="/resources/js/**"/>
+	<resources location="/WEB-INF/resources/css/" mapping="/resources/css/**"/>
+	<resources location="/WEB-INF/resources/img/" mapping="/resources/img/**"/>
+	
+	<!-- 패키지를 등록 -->
+	<context:component-scan base-package="web"/>
+	
+	<!-- application context안이 이미 등록된 bean들의 Annotation을 활성화하기 위해 사용된다 -->
+	<context:annotation-config/>
+	
+	<!-- 스프링에서 처리할 수 없는 요청은 톰캣에 위임하는 설정 -->  
+	<default-servlet-handler/>
+	
+	<!-- layout 설정 xml을 등록 -->
+	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/layouts/layouts.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<!-- tiles를 사용 설정 --> 
+	<beans:bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="requestContextAttribute" value="requestContext"/>
+		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+	</beans:bean>
+	
+</beans:beans>

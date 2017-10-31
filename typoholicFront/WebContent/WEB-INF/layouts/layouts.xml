@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+<!-- 메인영역 -->
+<definition name="main.tiles" template="/WEB-INF/layouts/main.jsp">
+	<put-attribute name="navbar" value="/WEB-INF/views/common/navbar.jsp"/>
+	<put-attribute name="main" value="/WEB-INF/views/main/mainContent.jsp"/>
+	<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+</definition>
+
+<!-- bookList -->
+<definition name="booklist.tiles" template="/WEB-INF/layouts/booklist.jsp">
+	<put-attribute name="navbar" value="/WEB-INF/views/common/navbar.jsp"/>
+	<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	<put-attribute name="sidenav" value="/WEB-INF/views/book/sidenav.jsp"/>
+	<put-attribute name="main" value="/WEB-INF/views/book/view.jsp"/>
+</definition>
+
+<!-- board -->
+<definition name="board.tiles" extends="main.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/board/list.jsp"/>
+</definition>
+<definition name="write.tiles" extends="main.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/board/write.jsp"/>
+</definition>
+<definition name="update.tiles" extends="main.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/board/update.jsp"/>
+</definition>
+<!-- detail -->
+<definition name="detail.tiles" template="/WEB-INF/layouts/detail.jsp">
+	<put-attribute name="navbar" value="/WEB-INF/views/common/navbar.jsp"/>
+	<put-attribute name="main" value="/WEB-INF/views/board/detail.jsp"/>
+	<put-attribute name="comment" value="/WEB-INF/views/board/comment.jsp"/>
+	<put-attribute name="list" value="/WEB-INF/views/board/list.jsp"/>
+	<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+</definition>
+
+<!-- User -->
+<!-- UserAccount -->
+<definition name="userAccount.tiles" extends="main.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/user/account.jsp"/>
+</definition>
+<!-- UserAccountSuccess -->
+<definition name="userAccountSuccess.tiles" extends="main.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/user/accountSuccess.jsp"/>
+</definition>
+
+<!-- UserLogin -->
+<definition name="userLogin.tiles" extends="main.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/user/login.jsp"/>
+</definition>
+<!-- UserLoginSuccess -->
+<definition name="userLoginSuccess.tiles" extends="main.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/user/loginSuccess.jsp"/>
+</definition>
+<!-- UserLogoutSuccess -->
+<definition name="userLogoutSuccess.tiles" extends="main.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/user/logoutSuccess.jsp"/>
+</definition>
+
+<!--********************  
+		에러 페이지
+************************-->
+<!-- errorLogin -->
+<definition name="errorLogin.tiles" extends="main.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/error/errorLogin.jsp"/>
+</definition>
+<!-- errorMissingConnect -->
+<definition name="errorMissingConnect.tiles" extends="main.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/error/errorMissingConnect.jsp"/>
+</definition>
+
+</tiles-definitions>
