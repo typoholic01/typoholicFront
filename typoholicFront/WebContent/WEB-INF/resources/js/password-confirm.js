@@ -35,6 +35,9 @@ function confirmPassword() {
 			
 			$("#password span.glyphicon").css("display","block");
 			$("#confirm span.glyphicon").css("display","block");
+			
+			//값 제거
+			$("#confirm input[name=confirm]").val("");
 		}
 	//값 입력이 빠진 경우
 	} else {

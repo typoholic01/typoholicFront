@@ -2,8 +2,20 @@
     pageEncoding="UTF-8"%>    
     <% request.setCharacterEncoding("UTF-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script src="${pageContext.request.contextPath }/js/password-confirm.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/password-confirm.js"></script>
+<!-- 공백체크 -->
+<script type="text/javascript">
+function checkLength(obj, min) {
+    memberNo = obj.value;
 
+    memberNo = "" + memberNo;
+
+    if( memberNo.length > min){
+        memberNo = memberNo.substring(0,min);
+        obj.value = memberNo;
+    }
+}
+</script>
 <div class="container">
 	<div class="row main col-sm-4 col-sm-offset-4">
 		<div class="panel-heading">
@@ -20,7 +32,7 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+							<input type="email" class="form-control" name="email" id="email" required placeholder="Enter your Email"/>
 						</div>
 					</div>
 				</div>
@@ -30,7 +42,7 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon" style="    padding: 6px 13.5px;"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="nickname" id="nickname" placeholder="별명을 입력해주세요"/>
+							<input type="text" class="form-control" name="nickname" id="nickname" required placeholder="별명을 입력해주세요"/>
 						</div>
 					</div>
 				</div>
@@ -40,7 +52,7 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-							<input onblur="confirmPassword();" type="password" class="form-control" name="password" placeholder="Enter your Password"/>
+							<input onblur="confirmPassword();" type="password" class="form-control" name="password" placeholder="Enter your Password" required="required"/>
 							<span class="glyphicon glyphicon-ok form-control-feedback" style="display: none;"></span>
 						</div>
 					</div>
@@ -51,7 +63,7 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-							<input onblur="confirmPassword();" type="password" class="form-control" name="confirm" placeholder="Confirm your Password"/>
+							<input onblur="confirmPassword();" type="password" class="form-control" name="confirm" placeholder="Confirm your Password" required="required"/>
 							<span class="glyphicon glyphicon-ok form-control-feedback" style="display: none;"></span>
 						</div>
 					</div>
